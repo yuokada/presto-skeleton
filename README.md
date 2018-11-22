@@ -1,0 +1,1 @@
+# Presto Skeleton Authentication Plugin
