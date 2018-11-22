@@ -12,10 +12,7 @@ class SkeletonAuthenticatorFactory extends PasswordAuthenticatorFactory {
 
   override def create(config: util.Map[String, String]): PasswordAuthenticator = try {
     val app = new Bootstrap((binder: Binder) => {
-      def foo(binder: Binder) =
-        binder.bind(classOf[SkeletonAuthenticator]).in(Scopes.SINGLETON)
-
-      foo(binder)
+        binder.bind(classOf[SkeletonAuthenticator]).in(Scopes.SINGLETON);
     })
     val injector = app.strictConfig.doNotInitializeLogging.setRequiredConfigurationProperties(config).initialize
     injector.getInstance(classOf[SkeletonAuthenticator])
